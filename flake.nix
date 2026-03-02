@@ -25,7 +25,7 @@
 
           # Bundle macOS: result/Applications/Tartube.app
           tartubeApp = final.stdenvNoCC.mkDerivation {
-            pname = "Tartube";
+            pname = "tartube-macwrapp";
             version = final.tartube.version or "unknown";
 
             # aquí tienes tu icono:
@@ -47,10 +47,10 @@
               <plist version="1.0">
               <dict>
                 <key>CFBundleName</key>
-                <string>Tartube</string>
+                <string>tartube</string>
 
                 <key>CFBundleDisplayName</key>
-                <string>Tartube</string>
+                <string>tartube</string>
 
                 <key>CFBundleIdentifier</key>
                 <string>io.nixos.tartube</string>
@@ -102,7 +102,7 @@
             '';
 
             meta = {
-              description = "Tartube macOS .app bundle (Nix launcher) con icono";
+              description = "Tartube macOS .app bundle (Nix launcher) with icon";
               platforms = [ "x86_64-darwin" "aarch64-darwin" ];
             };
           };
@@ -115,7 +115,7 @@
 
       # Construye el .app con:
       #   nix build .#tartube-app
-      tartube-app = pkgs.tartubeApp;
+      tartube-macwrapp = pkgs.tartubeApp;
 
       # Por defecto, que sea el .app
       default = pkgs.tartubeApp;
